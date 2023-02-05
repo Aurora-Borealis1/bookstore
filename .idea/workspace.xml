@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="06e979de-dde1-4894-b73b-920b3567e594" name="Changes" comment="ASM打桩">
+      <change afterPath="$PROJECT_DIR$/study/javase/src/test/java/com/gongyuan/study/security/DigestTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/study" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/nio/file/Files.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/nio/file/Path.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/util/concurrent/atomic/AtomicBoolean.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar!/lombok/Data.class" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$USER_HOME$/Desktop/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="284FeKNdkX9VUpYUmPXX8fCcnxn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ToolWindowCommit.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/taowangwang/IdeaProjects/gitee/gongyuan/study/javase/src/main/java/com/gongyuan/study/compile&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;2a2d595e6ed9a0b24f027f2b63b134d6&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.gongyuan.study.compile" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/study/javase/src/main/java/com/gongyuan/study/compile" />
+      <recent name="$PROJECT_DIR$/compile" />
+      <recent name="$PROJECT_DIR$/study/javase/src/main/resources/src" />
+      <recent name="$PROJECT_DIR$/study/javase/src/main/resources/file" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/study/javase/src/main/resources" />
+      <recent name="$PROJECT_DIR$/study" />
+      <recent name="$PROJECT_DIR$/study/javase/src/main/resources/xml" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DigestTest.test">
+    <configuration name="AsmTest.testClassNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gongyuan.study.compile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gongyuan.study.compile" />
+      <option name="MAIN_CLASS_NAME" value="com.gongyuan.study.compile.AsmTest" />
+      <option name="METHOD_NAME" value="testClassNode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompilerTest.testRun" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gongyuan.study.compile.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gongyuan.study.compile" />
+      <option name="MAIN_CLASS_NAME" value="com.gongyuan.study.compile.CompilerTest" />
+      <option name="METHOD_NAME" value="testRun" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigestTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gongyuan.study.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gongyuan.study.security" />
+      <option name="MAIN_CLASS_NAME" value="com.gongyuan.study.security.DigestTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DigestTest.testDigest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gongyuan.study.security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gongyuan.study.security" />
+      <option name="MAIN_CLASS_NAME" value="com.gongyuan.study.security.DigestTest" />
+      <option name="METHOD_NAME" value="testDigest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegexTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="javase" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gongyuan.study.io.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gongyuan.study.io" />
+      <option name="MAIN_CLASS_NAME" value="com.gongyuan.study.io.RegexTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DigestTest.test" />
+        <item itemvalue="JUnit.RegexTest.test" />
+        <item itemvalue="JUnit.DigestTest.testDigest" />
+        <item itemvalue="JUnit.CompilerTest.testRun" />
+        <item itemvalue="JUnit.AsmTest.testClassNode" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06e979de-dde1-4894-b73b-920b3567e594" name="Changes" comment="" />
+      <created>1650468045262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650468045262</updated>
+      <workItem from="1650468047139" duration="18744000" />
+      <workItem from="1661258708393" duration="488000" />
+      <workItem from="1661259272791" duration="26141000" />
+      <workItem from="1661523906315" duration="1169000" />
+      <workItem from="1661525214953" duration="65949000" />
+      <workItem from="1675339698577" duration="19000" />
+      <workItem from="1675339738701" duration="306000" />
+      <workItem from="1675340076140" duration="511000" />
+      <workItem from="1675340755313" duration="124000" />
+      <workItem from="1675340935213" duration="66000" />
+      <workItem from="1675341013681" duration="225000" />
+      <workItem from="1675341248908" duration="89000" />
+      <workItem from="1675341353957" duration="47000" />
+      <workItem from="1675341416626" duration="101000" />
+      <workItem from="1675341554859" duration="430000" />
+      <workItem from="1675342691748" duration="67000" />
+      <workItem from="1675342774069" duration="56000" />
+      <workItem from="1675343336687" duration="29000" />
+      <workItem from="1675343376452" duration="58000" />
+      <workItem from="1675347730557" duration="774000" />
+    </task>
+    <task id="LOCAL-00001" summary="修改注释">
+      <created>1650468223772</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650468223772</updated>
+    </task>
+    <task id="LOCAL-00002" summary="初探内存屏障和volatile语义">
+      <created>1650474910965</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650474910965</updated>
+    </task>
+    <task id="LOCAL-00003" summary="AtomicTest完结撒花">
+      <created>1651239195354</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1651239195354</updated>
+    </task>
+    <task id="LOCAL-00004" summary="aqs测试">
+      <created>1657862186766</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657862186766</updated>
+    </task>
+    <task id="LOCAL-00005" summary="stream测试">
+      <created>1661345524449</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661345524449</updated>
+    </task>
+    <task id="LOCAL-00006" summary="stream测试">
+      <created>1661351794192</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1661351794192</updated>
+    </task>
+    <task id="LOCAL-00007" summary="io测试">
+      <created>1661437522294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1661437522294</updated>
+    </task>
+    <task id="LOCAL-00008" summary="PathTest + FilesTest">
+      <created>1661530065131</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1661530065131</updated>
+    </task>
+    <task id="LOCAL-00009" summary="PathTest + FilesTest">
+      <created>1661530124107</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661530124107</updated>
+    </task>
+    <task id="LOCAL-00010" summary="PathTest + FilesTest">
+      <created>1661530154648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1661530154648</updated>
+    </task>
+    <task id="LOCAL-00011" summary="PathTest + FilesTest">
+      <created>1661573708063</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1661573708063</updated>
+    </task>
+    <task id="LOCAL-00012" summary="regex">
+      <created>1661591236384</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1661591236384</updated>
+    </task>
+    <task id="LOCAL-00013" summary="regex">
+      <created>1661594829701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1661594829701</updated>
+    </task>
+    <task id="LOCAL-00014" summary="socket">
+      <created>1661691654095</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1661691654095</updated>
+    </task>
+    <task id="LOCAL-00015" summary="url+mail">
+      <created>1661695225421</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1661695225421</updated>
+    </task>
+    <task id="LOCAL-00016" summary="动态编译+类加载">
+      <created>1661960016918</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1661960016918</updated>
+    </task>
+    <task id="LOCAL-00017" summary="ASM打桩">
+      <created>1662038242144</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1662038242144</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改注释" />
+    <MESSAGE value="初探内存屏障和volatile语义" />
+    <MESSAGE value="AtomicTest完结撒花" />
+    <MESSAGE value="aqs测试" />
+    <MESSAGE value="stream测试" />
+    <MESSAGE value="io测试" />
+    <MESSAGE value="PathTest + FilesTest" />
+    <MESSAGE value="regex" />
+    <MESSAGE value="socket" />
+    <MESSAGE value="url+mail" />
+    <MESSAGE value="动态编译+类加载" />
+    <MESSAGE value="ASM打桩" />
+    <option name="LAST_COMMIT_MESSAGE" value="ASM打桩" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
