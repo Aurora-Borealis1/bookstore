@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gongyuan.bookstore.dao.UserMapper">
+
+
+    <!-- Define the resultMap for mapping results to the UserPO object -->
+    <resultMap id="userResultMap" type="com.gongyuan.bookstore.model.po.UserPO">
+        <id property="id" column="id" jdbcType="BIGINT" javaType="long"/>
+        <result property="gmtCreateTime" column="gmt_create_time" jdbcType="TIMESTAMP"
+                javaType="java.time.LocalDateTime"/>
+        <result property="gmtUpdateTime" column="gmt_update_time" jdbcType="TIMESTAMP"
+                javaType="java.time.LocalDateTime"/>
+        <result property="accountNo" column="account_no" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="passwordDigest" column="password_digest" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="nickname" column="nickname" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="icon" column="icon" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="email" column="email" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="birthDay" column="birth_day" jdbcType="TIMESTAMP" javaType="java.time.LocalDate"/>
+        <result property="address" column="address" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="interestingTags" column="interesting_tags" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="extInfo" column="ext_info" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+
+    <sql id="user">
+        id
+        , gmt_create_time, gmt_update_time, account_no, password_digest, nickname, icon, gender, email, birth_day, address, interesting_tags, ext_info
+    </sql>
+
+
+    <!-- Insert a new user -->
+    <insert id="insert" parameterType="com.gongyuan.bookstore.model.po.UserPO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_info (account_no, password_digest, nickname, icon, gender, email, birth_day, address,
+                               interesting_tags, ext_info)
+        VALUES (#{accountNo}, #{passwordDigest}, #{nickname}, #{icon}, #{gender}, #{email}, #{birthDay}, #{address},
+                #{interestingTags}, #{extInfo})
+    </insert>
+
+
+    <!-- Update an existing user by ID -->
+    <update id="updateById" parameterType="com.gongyuan.bookstore.model.po.UserPO">
+        UPDATE user_info
+        <set>
+            gmt_update_time = CURRENT_TIMESTAMP,
+            <if test="passwordDigest != null">
+                password_digest = #{passwordDigest},
+            </if>
+            <if test="nickname != null">
+                nickname = #{nickname},
+            </if>
+            <if test="icon != null">
+                icon = #{icon},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="birthDay != null">
+                birth_day = #{birthDay},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="interestingTags != null">
+                interesting_tags = #{interestingTags},
+            </if>
+            <if test="extInfo != null">
+                ext_info = #{extInfo}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- Select a user by ID -->
+    <select id="selectById" resultMap="userResultMap">
+        SELECT
+        <include refid="user"/>
+        FROM user_info
+        WHERE id = #{id}
+    </select>
+
+
+    <!-- Select a user by accountNo -->
+    <select id="selectByAccountNo" resultMap="userResultMap">
+        SELECT
+        <include refid="user"/>
+        FROM user_info
+        WHERE account_no = #{accountNo}
+    </select>
+
+</mapper>

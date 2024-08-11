@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gongyuan.bookstore.dao.TableCreatorMapper">
+
+
+    <insert id="createUserInfo">
+        CREATE TABLE IF NOT EXISTS user_info
+        (
+            id
+            BIGINT
+            AUTO_INCREMENT
+            PRIMARY
+            KEY,
+            account_no
+            VARCHAR
+        (
+            255
+        ) NOT NULL,
+            password_digest VARCHAR
+        (
+            255
+        ) NOT NULL,
+            nickname VARCHAR
+        (
+            255
+        ) NOT NULL,
+            icon VARCHAR
+        (
+            255
+        ) NOT NULL,
+            gender ENUM
+        (
+            'MALE',
+            'FEMALE'
+        ) NOT NULL,
+            email VARCHAR
+        (
+            255
+        ),
+            birth_day TIMESTAMP,
+            address VARCHAR
+        (
+            255
+        ),
+            interesting_tags VARCHAR
+        (
+            255
+        ),
+            ext_info TEXT,
+            gmt_create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            gmt_update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            CONSTRAINT uk_account_no UNIQUE
+        (
+            account_no
+        )
+            )
+    </insert>
+
+
+    <insert id="createBookInfo">
+        CREATE TABLE IF NOT EXISTS book_info
+        (
+            id
+            BIGINT
+            AUTO_INCREMENT
+            PRIMARY
+            KEY,
+            cover
+            VARCHAR
+        (
+            255
+        ) NOT NULL,
+            title VARCHAR
+        (
+            255
+        ) NOT NULL,
+            author VARCHAR
+        (
+            255
+        ) NOT NULL,
+            translator VARCHAR
+        (
+            255
+        ),
+            publishing_house VARCHAR
+        (
+            255
+        ) NOT NULL,
+            publication_date TIMESTAMP NOT NULL,
+            version INT CHECK
+        (
+            version >
+            0
+        ),
+            price DECIMAL
+        (
+            10,
+            2
+        ) NOT NULL CHECK
+        (
+            price >
+            0
+        ),
+            currency VARCHAR
+        (
+            32
+        ) NOT NULL,
+            stock INT CHECK
+        (
+            stock >= 0
+        ),
+            tags VARCHAR
+        (
+            2048
+        ),
+            brief_introduction TEXT NOT NULL,
+            catalogue TEXT NOT NULL,
+            language VARCHAR
+        (
+            255
+        ) NOT NULL,
+            status VARCHAR
+        (
+            32
+        ) NOT NULL,
+            ext_info TEXT ,
+            gmt_create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            gmt_update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            CONSTRAINT uk UNIQUE
+        (
+            title,
+            author,
+            publishing_house,
+            version,
+            language
+        )
+            )
+    </insert>
+
+    <insert id="createOrderInfo">
+        CREATE TABLE IF NOT EXISTS order_info
+        (
+            id              BIGINT AUTO_INCREMENT PRIMARY KEY,
+            gmt_create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            gmt_update_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            book_id         BIGINT CHECK (book_id > 0),
+            user_id         BIGINT CHECK (user_id > 0),
+            quantity        INT CHECK (quantity > 0),
+            total_price     DECIMAL(15, 2) NOT NULL CHECK (total_price > 0),
+            currency        VARCHAR(32) NOT NULL,
+            status          VARCHAR(20) NOT NULL,
+            pay_time        TIMESTAMP,
+            shipment_time   TIMESTAMP,
+            complete_time   TIMESTAMP,
+            cancel_time     TIMESTAMP,
+            address         VARCHAR(255) NOT NULL,
+            phone         VARCHAR(255) NOT NULL,
+            ext_info        TEXT
+        );
+    </insert>
+
+</mapper>

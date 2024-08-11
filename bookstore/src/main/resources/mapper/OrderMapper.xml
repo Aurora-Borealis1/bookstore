@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gongyuan.bookstore.dao.OrderMapper">
+
+    <!-- resultMap 定义 -->
+    <resultMap id="orderResultMap" type="com.gongyuan.bookstore.model.po.OrderPO">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="gmtCreateTime" column="gmt_create_time" jdbcType="TIMESTAMP"/>
+        <result property="gmtUpdateTime" column="gmt_update_time" jdbcType="TIMESTAMP"/>
+        <result property="bookId" column="book_id" jdbcType="BIGINT"/>
+        <result property="userId" column="user_id" jdbcType="BIGINT"/>
+        <result property="quantity" column="quantity" jdbcType="INTEGER"/>
+        <result property="totalPrice" column="total_price" jdbcType="DECIMAL"/>
+        <result property="currency" column="currency" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="payTime" column="pay_time" jdbcType="TIMESTAMP"/>
+        <result property="shipmentTime" column="shipment_time" jdbcType="TIMESTAMP"/>
+        <result property="completeTime" column="complete_time" jdbcType="TIMESTAMP"/>
+        <result property="cancelTime" column="cancel_time" jdbcType="TIMESTAMP"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="extInfo" column="ext_info" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <!-- Select an Order by its ID -->
+    <select id="selectById" resultMap="orderResultMap">
+        SELECT *
+        FROM order_info
+        WHERE id = #{id}
+    </select>
+
+    <!-- Update an existing Order -->
+    <update id="updateById" parameterType="com.gongyuan.bookstore.model.po.OrderPO">
+        UPDATE order_info
+        <set>
+            gmt_update_time = #{gmtUpdateTime},
+            <if test="quantity != null">
+                quantity = #{quantity},
+            </if>
+            <if test="totalPrice != null">
+                total_price = #{totalPrice},
+            </if>
+            <if test="currency != null">
+                currency = #{currency},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="payTime != null">
+                pay_time = #{payTime},
+            </if>
+            <if test="shipmentTime != null">
+                shipment_time = #{shipmentTime},
+            </if>
+            <if test="completeTime != null">
+                complete_time = #{completeTime},
+            </if>
+            <if test="cancelTime != null">
+                cancel_time = #{cancelTime},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="extInfo != null">
+                ext_info = #{extInfo}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- Insert a new Order -->
+    <insert id="insert" parameterType="com.gongyuan.bookstore.model.po.OrderPO" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO order_info (book_id,
+                                user_id,
+                                quantity,
+                                total_price,
+                                currency,
+                                status,
+                                pay_time,
+                                shipment_time,
+                                complete_time,
+                                cancel_time,
+                                address,
+                                phone,
+                                ext_info)
+        VALUES (#{bookId},
+                #{quantity},
+                #{userId},
+                #{totalPrice},
+                #{currency},
+                #{status},
+                #{payTime},
+                #{shipmentTime},
+                #{completeTime},
+                #{cancelTime},
+                #{address},
+                #{phone},
+                #{extInfo})
+    </insert>
+
+</mapper>

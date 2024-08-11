@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gongyuan.bookstore.dao.BookMapper">
+
+    <!-- Define the resultMap -->
+    <resultMap id="bookResultMap" type="com.gongyuan.bookstore.model.po.BookPO">
+        <id property="id" column="id"/>
+        <result property="gmtCreateTime" column="gmt_create_time" jdbcType="TIMESTAMP"
+                javaType="java.time.LocalDateTime"/>
+        <result property="gmtUpdateTime" column="gmt_update_time" jdbcType="TIMESTAMP"
+                javaType="java.time.LocalDateTime"/>
+        <result property="cover" column="cover" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="title" column="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="author" column="author" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="translator" column="translator" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="publishingHouse" column="publishing_house" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="publicationDate" column="publication_date" jdbcType="TIMESTAMP"
+                javaType="java.time.LocalDate"/>
+        <result property="version" column="version" jdbcType="INTEGER" javaType="int"/>
+        <result property="price" column="price" jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+        <result property="currency" column="currency" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="stock" column="stock" jdbcType="INTEGER" javaType="int"/>
+        <result property="tags" column="tags" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="briefIntroduction" column="brief_introduction" jdbcType="VARCHAR"
+                javaType="java.lang.String"/>
+        <result property="catalogue" column="catalogue" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="language" column="language" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="status" column="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="extInfo" column="ext_info" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+
+
+    <sql id="book">
+        cover
+        , title, author, translator, publishing_house, publication_date,
+            version, price, currency, stock, tags, brief_introduction, catalogue, language,
+            status, ext_info
+    </sql>
+
+    <sql id="insertBook">
+        INSERT INTO book_info (
+        <include refid="book"/>
+        ) VALUES (
+        #{cover}, #{title}, #{author}, #{translator}, #{publishingHouse},
+        #{publicationDate}, #{version}, #{price}, #{currency}, #{stock}, #{tags},
+        #{briefIntroduction}, #{catalogue}, #{language}, #{status}, #{extInfo}
+        )
+    </sql>
+
+    <!-- insert a book's stock -->
+    <insert id="insert" parameterType="com.gongyuan.bookstore.model.po.BookPO" useGeneratedKeys="true" keyProperty="id">
+        <include refid="insertBook"/>
+    </insert>
+
+    <!-- Query a book by its ID -->
+    <select id="selectById" resultMap="bookResultMap">
+        SELECT *
+        FROM book_info
+        WHERE id = #{id}
+    </select>
+
+    <!-- Update a book by its ID -->
+    <update id="updateById" parameterType="com.gongyuan.bookstore.model.po.BookPO">
+        UPDATE book_info
+        <set>
+            gmt_update_time = CURRENT_TIMESTAMP,
+            <if test="cover != null">cover = #{cover},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="author != null">author = #{author},</if>
+            <if test="translator != null">translator = #{translator},</if>
+            <if test="publishingHouse != null">publishing_house = #{publishingHouse},</if>
+            <if test="publicationDate != null">publication_date = #{publicationDate},</if>
+            <if test="version != null">version = #{version},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="currency != null">currency = #{currency},</if>
+            <if test="tags != null">tags = #{tags},</if>
+            <if test="briefIntroduction != null">brief_introduction = #{briefIntroduction},</if>
+            <if test="catalogue != null">catalogue = #{catalogue},</if>
+            <if test="language != null">language = #{language},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="extInfo != null">ext_info = #{extInfo}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- insertOrUpdate a book's stock -->
+    <update id="updateStock" parameterType="com.gongyuan.bookstore.model.po.BookPO">
+        UPDATE book_info
+        SET stock = stock + #{stockAmount}
+        WHERE id = #{book.id} AND stock = #{book.stock}
+    </update>
+
+
+    <!-- Delete a book by its ID -->
+    <delete id="deleteById">
+        UPDATE book_info
+        SET status = 'DELETE'
+        WHERE id = #{id}
+    </delete>
+
+
+    <!-- Query a book by its ID -->
+    <select id="select" resultMap="bookResultMap">
+        SELECT *
+        FROM book_info
+    </select>
+
+
+</mapper>
